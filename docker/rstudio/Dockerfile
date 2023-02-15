@@ -41,6 +41,8 @@ RUN /rocker_scripts/install_rstudio.sh && \
     apt-get -y update && \
     # alien is a helper to install oracle instantclient
     apt-get install -y --no-install-recommends alien && \
+    # installing yad (yet another dialog)
+    apt-get -y install yad && \
     apt-get install -y iputils-ping && \
     apt-get install -y --no-install-recommends libaio1
 
