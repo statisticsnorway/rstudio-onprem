@@ -162,8 +162,10 @@ RUN chmod +x /usr/local/bin/ssb-gitconfig.py
 
 # Use proxy for https connections, this must happen last
 ENV https_proxy=http://proxy.ssb.no:3128
-ENV no_proxy=nexus.ssb.no,git-adm.ssb.no,i.test.ssb.no,i.ssb.no
+ENV no_proxy=nexus.ssb.no,git-adm.ssb.no,i.test.ssb.no,i.ssb.no,api.github.com,github.com
+
+COPY start.sh /start.sh
 
 EXPOSE 8787
 
-CMD ["/init"]
+CMD ["/start.sh"]
