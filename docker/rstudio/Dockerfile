@@ -134,7 +134,7 @@ RUN ln -s /ssb/share/etc/tnsnames.ora /usr/lib/oracle/21/client64/lib/network/tn
 # Allowing usage of stamme_variabler in the terminal
 # stamme_variabler is also useable in the kernels as
 # the file is sourced before the kernels start
-RUN ln -s /ssb/share/etc/stamme_variabel /etc/profile.d/stamme_variabel
+COPY stamme_variabel /etc/profile.d/stamme_variabel
 
 RUN mkdir -p /usr/local/share/etc/
 COPY bashrc.felles /usr/local/share/etc/bashrc.felles

@@ -1,8 +1,5 @@
 # /usr/local/share/etc/bashrc.felles
 
-# Get all variables from stamme_variabel
-source /etc/profile.d/stamme_variabel
-
 # sourcing the default .bashrc from jupyterlab-common
 . /etc/skel/.bashrc
 
