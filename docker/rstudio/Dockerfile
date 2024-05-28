@@ -159,7 +159,7 @@ RUN R CMD javareconf -e && \
     R -e "remotes::install_github('statisticsnorway/Kostra')" && \
     R -e "remotes::install_github('statisticsnorway/SdcForetakPerson')" && \
     R -e "remotes::install_github('statisticsnorway/struktuR')" && \
-    R -e "remotes::install_github('statisticsnorway/fellesr')" && \
+    R -e "remotes::install_github('statisticsnorway/ssb-fellesr')" && \
     R -e "remotes::install_github('statisticsnorway/easySdcTable')" && \
     R -e "remotes::install_github('statisticsnorway/ReGenesees')" && \
     rm -rf /tmp/downloaded_packages/ /tmp/*.rds && \
