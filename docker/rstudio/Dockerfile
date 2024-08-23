@@ -9,26 +9,9 @@ RUN apt-get update -y \
     && apt-get -y upgrade \
     && apt-get -y dist-upgrade \
     && apt-get install -y --no-install-recommends "openjdk-${openjdk_version}-jdk-headless" ca-certificates-java \
-    software-properties-common dirmngr build-essential curl libssl-dev libcurl4-openssl-dev libgdal-dev libre2-dev \
-    apt-utils libudunits2-dev cmake lsb-release gpg-agent libssh-dev libsodium-dev gfortran cargo libcairo2-dev zlib1g-dev \
-    
-    # add the signing key (by Michael Rutter) for these repos
-    # To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
-    # Fingerprint: 298A3A825C0D65DFD57CBB651716619E084DAB9
-    && wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc \
-    | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc \
-    # add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
-    && add-apt-repository -y "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" \
-
-    # add git repo
-    && add-apt-repository -y ppa:git-core/ppa \
-    && gpg-agent --daemon \
-    # Get access to 5000+ CRAN Packages
-    && add-apt-repository -y ppa:c2d4u.team/c2d4u4.0+ \
-    && apt-get update -y \
-    && apt-get upgrade -y \
-
-    
+    software-properties-common dirmngr build-essential curl wget libssl-dev libcurl4-openssl-dev libglpk-dev libgdal-dev libre2-dev \
+    liblzma-dev libbz2-dev \
+    apt-utils libudunits2-dev cmake lsb-release gpg-agent libssh-dev libv8-dev \
     && apt autoremove -y \
     && apt-get -y clean all \
     && rm -rf /var/lib/apt/lists/*
