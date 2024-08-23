@@ -121,7 +121,7 @@ RUN R CMD javareconf -e && \
     # R -e "install.packages('survey', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
     # R -e "install.packages('DBI', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
     # R -e "install.packages('renv', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    R -e "install.packages('arrow', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
+    R -e "install.packages('arrow', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')" && # \
     # R -e "install.packages('leaflet', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
     # R -e "install.packages('getPass', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
     # R -e "install.packages('rJava', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
