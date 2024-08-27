@@ -172,7 +172,7 @@ RUN R CMD javareconf -e && \
     # R -e "remotes::install_github('statisticsnorway/ssb-fellesr', dependencies=TRUE, verbose=TRUE)" && \
     # R -e "remotes::install_github('statisticsnorway/ssb-easysdctable')" && \
     # R -e "remotes::install_github('statisticsnorway/ReGenesees')" && \
-    rm -rf /tmp/downloaded_packages/ /tmp/*.rds && \
+    # rm -rf /tmp/downloaded_packages/ /tmp/*.rds && \
     # Doesn t work with Java11 - use a custom one
     # unzip /tmp/jwsacruncher-2.2.4.zip -d /opt && rm -f /tmp/jwsacruncher-2.2.4.zip && \
     # Create a symlink at /usr/bin so users can call jwsacruncher from anywhere
