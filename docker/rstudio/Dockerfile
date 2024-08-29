@@ -1,5 +1,5 @@
 FROM rocker/r-ver:4.4.0
-##test
+
 ARG openjdk_version="17"
 USER root
 
@@ -55,10 +55,10 @@ RUN /rocker_scripts/install_rstudio.sh && \
     # installing texlive via apt instead, the built in install_texlive doesnt supply everything
     #apt-get -y install texlive-full && \
     # alien is a helper to install oracle instantclient
-    #apt-get install -y --no-install-recommends alien && \
+    apt-get install -y --no-install-recommends alien && \
     # installing yad (yet another dialog)
-    #apt-get -y install yad && \
-    #apt-get install -y iputils-ping && \
+    apt-get -y install yad && \
+    apt-get install -y iputils-ping && \
     apt-get install -y --no-install-recommends libaio1 libaio-dev
 
 ENV R_HOME /usr/local/lib/R
