@@ -69,11 +69,11 @@ COPY Rprofile.site /etc/R/Rprofile.site
 COPY Rprofile.site /usr/local/lib/R/etc/Rprofile.site
 
 # Setting up environment variables for oracle and R
-#ENV OCI_INC=/usr/include/oracle/21/client64
-#ENV OCI_LIB=/usr/lib/oracle/21/client64/lib
-#ENV ORACLE_HOME=/usr/lib/oracle/21/client64
-#ENV TNS_ADMIN=/usr/lib/oracle/21/client64/lib/network
-#ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/oracle/21/client64/lib
+ENV OCI_INC=/usr/include/oracle/21/client64
+ENV OCI_LIB=/usr/lib/oracle/21/client64/lib
+ENV ORACLE_HOME=/usr/lib/oracle/21/client64
+ENV TNS_ADMIN=/usr/lib/oracle/21/client64/lib/network
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/oracle/21/client64/lib
 
 # Downloading oracle instant-client components and saving to /tmp
 #RUN wget https://download.oracle.com/otn_software/linux/instantclient/216000/oracle-instantclient-basic-21.6.0.0.0-1.x86_64.rpm -P /tmp/ && \
