@@ -28,14 +28,14 @@ RUN apt update && \
     apt-get -y install cron
 
 # Added repository for libpoppler-cpp-dev, and installed dependencies for tesseract ################# This is for displaying pdfs (libpoppler) and text-reading (tessaract)
-RUN apt-get update -y && \
-    apt-get install -y software-properties-common && \
-    apt-get install -y libpoppler-cpp-dev libtesseract-dev tesseract-ocr-eng tesseract-ocr-nor && \
-    apt-get install -y libmagick++-dev
+#RUN apt-get update -y && \
+    #apt-get install -y software-properties-common && \
+    #apt-get install -y libpoppler-cpp-dev libtesseract-dev tesseract-ocr-eng tesseract-ocr-nor && \
+    #apt-get install -y libmagick++-dev
 
 # Added dependencies for ProtoBuf  #################### Serializing structured data
-RUN apt-get update -y && \
-    apt-get install -y libprotoc-dev libprotobuf-dev protobuf-compiler
+#RUN apt-get update -y && \
+    #apt-get install -y libprotoc-dev libprotobuf-dev protobuf-compiler
 
 # ENV S6_VERSION=v2.1.0.2
 # ENV RSTUDIO_VERSION=2022.07.2+576
@@ -53,13 +53,13 @@ RUN /rocker_scripts/install_rstudio.sh && \
     #/rocker_scripts/install_tidyverse.sh && \
     apt-get -y update && \
     # installing texlive via apt instead, the built in install_texlive doesnt supply everything
-    apt-get -y install texlive-full && \
+    #apt-get -y install texlive-full && \
     # alien is a helper to install oracle instantclient
     apt-get install -y --no-install-recommends alien && \
     # installing yad (yet another dialog)
-    apt-get -y install yad && \
-    apt-get install -y iputils-ping && \
-    apt-get install -y --no-install-recommends libaio1 libaio-dev
+    #apt-get -y install yad && \
+    #apt-get install -y iputils-ping && \
+    #apt-get install -y --no-install-recommends libaio1 libaio-dev
 
 ENV R_HOME /usr/local/lib/R
 ENV R_LIBS_USER /usr/local/lib/R/library
