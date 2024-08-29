@@ -11,7 +11,8 @@ RUN apt-get update -y \
     && apt-get install -y --no-install-recommends "openjdk-${openjdk_version}-jdk-headless" ca-certificates-java \
     software-properties-common dirmngr build-essential curl wget libssl-dev libcurl4-openssl-dev libglpk-dev libgdal-dev libre2-dev \
     liblzma-dev libbz2-dev \
-    apt-utils libudunits2-dev cmake lsb-release gpg-agent libssh-dev libv8-dev \
+    apt-utils libudunits2-dev cmake lsb-release gpg-agent libssh-dev libsodium-dev libv8-dev gfortran cargo libcairo2-dev zlib1g-dev \
+    #apt-utils libudunits2-dev cmake lsb-release gpg-agent libssh-dev libv8-dev \
     && wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc \
     | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc \
     # add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
