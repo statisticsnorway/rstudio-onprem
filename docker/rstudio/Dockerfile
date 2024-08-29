@@ -1,6 +1,6 @@
 FROM rocker/r-ver:4.4.0
 
-ARG openjdk_version="17"
+ARG openjdk_version="17" ########### Open Java-dev-kit
 USER root
 
 # We will install R and packages using instructions from https://cloud.r-project.org/
@@ -27,13 +27,13 @@ RUN apt update && \
     apt-get -y install wget && \
     apt-get -y install cron
 
-# Added repository for libpoppler-cpp-dev, and installed dependencies for tesseract
+# Added repository for libpoppler-cpp-dev, and installed dependencies for tesseract ################# This is for displaying pdfs (libpoppler) and text-reading (tessaract)
 RUN apt-get update -y && \
     apt-get install -y software-properties-common && \
     apt-get install -y libpoppler-cpp-dev libtesseract-dev tesseract-ocr-eng tesseract-ocr-nor && \
     apt-get install -y libmagick++-dev
 
-# Added dependencies for ProtoBuf
+# Added dependencies for ProtoBuf  #################### Serializing structured data
 RUN apt-get update -y && \
     apt-get install -y libprotoc-dev libprotobuf-dev protobuf-compiler
 
@@ -53,7 +53,7 @@ RUN /rocker_scripts/install_rstudio.sh && \
     #/rocker_scripts/install_tidyverse.sh && \
     apt-get -y update && \
     # installing texlive via apt instead, the built in install_texlive doesnt supply everything
-    #apt-get -y install texlive-full && \
+    apt-get -y install texlive-full && \
     # alien is a helper to install oracle instantclient
     apt-get install -y --no-install-recommends alien && \
     # installing yad (yet another dialog)
@@ -110,7 +110,7 @@ RUN apt-get update -y && \
     apt-get -y clean all && \
     rm -rf /var/lib/apt/lists/*
 
-COPY jwsacruncher-2.2.4.zip /tmp/jwsacruncher-2.2.4.zip
+#COPY jwsacruncher-2.2.4.zip /tmp/jwsacruncher-2.2.4.zip
 
 # Copy the ROracle installation file into the container
 #COPY ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz /tmp/ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz
