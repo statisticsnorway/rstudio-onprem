@@ -116,7 +116,7 @@ COPY jwsacruncher-2.2.4.zip /tmp/jwsacruncher-2.2.4.zip
 COPY ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz /tmp/ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz
 
 # Setup R java support and install R packages that are not available as Ubuntu packages
-RUN R CMD javareconf -e && \
+#RUN R CMD javareconf -e && \
     # R -e "install.packages('openxlsx', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
     # R -e "install.packages('survey', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
     # R -e "install.packages('DBI', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
