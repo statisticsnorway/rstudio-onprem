@@ -46,11 +46,11 @@ ENV PANDOC_VERSION=default
 ENV QUARTO_VERSION=default
 
 RUN /rocker_scripts/install_rstudio.sh && \
-    /rocker_scripts/install_pandoc.sh && \
-    /rocker_scripts/install_quarto.sh && \
+    #/rocker_scripts/install_pandoc.sh && \
+    #/rocker_scripts/install_quarto.sh && \
     #/rocker_scripts/install_texlive.sh && \
-    /rocker_scripts/install_tensorflow.sh && \
-    /rocker_scripts/install_tidyverse.sh && \
+    #/rocker_scripts/install_tensorflow.sh && \
+    #/rocker_scripts/install_tidyverse.sh && \
     apt-get -y update && \
     # installing texlive via apt instead, the built in install_texlive doesnt supply everything
     apt-get -y install texlive-full && \
