@@ -181,7 +181,7 @@ COPY ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz /tmp/ROracle_1.4-1_R_x86_64
     # ln -s /opt/jwsacruncher-2.2.4/bin/jwsacruncher /usr/bin/jwsacruncher
 
 # add tnsnames.ora to oracle path
-RUN ln -s /ssb/share/etc/tnsnames.ora /usr/lib/oracle/21/client64/lib/network/tnsnames.ora
+#RUN ln -s /ssb/share/etc/tnsnames.ora /usr/lib/oracle/21/client64/lib/network/tnsnames.ora
 
 # symlink to /ssb/share/etc/stamme_variabel
 RUN ln -s /ssb/share/etc/stamme_variabel /etc/profile.d/stamme_variabel
