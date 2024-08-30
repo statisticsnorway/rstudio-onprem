@@ -42,12 +42,9 @@ r-cran-haven
 
 r-cran-openxlsx
 r-cran-survey
-r-cran-DBI
 r-cran-renv
 r-cran-leaflet
-r-cran-getPass
 r-cran-rJava
-r-cran-rjwsacruncher
 r-cran-sf
 r-cran-sfarrow
 r-cran-dbplyr
@@ -59,24 +56,11 @@ r-cran-knitr
 r-cran-rmarkdown
 r-cran-Rcurl
 r-cran-here
-r-cran-esquisse
-r-cran-dcmodify
 r-cran-simputation
-r-cran-SmallCountRounding
-r-cran-PxWebApiData
-r-cran-SSBtools
-r-cran-klassR
-r-cran-GISSB
 r-cran-googlecloudstorager
-r-cran-tidyfst
-r-cran-GaussSuppression
 r-cran-hmisc
-r-cran-sdcTable
-r-cran-DT
-r-cran-configr
 r-cran-rjdemetra
 r-cran-eurostat
-r-cran-dggridR
 r-cran-git2r
 r-cran-testthat
 r-cran-usethis
