@@ -44,9 +44,7 @@ r-cran-openxlsx
 r-cran-survey
 r-cran-renv
 r-cran-leaflet
-r-cran-rJava
 r-cran-sf
-r-cran-sfarrow
 r-cran-dbplyr
 r-cran-shiny
 r-cran-rstudioapi
@@ -54,7 +52,6 @@ r-cran-httr
 r-cran-readr
 r-cran-knitr
 r-cran-rmarkdown
-r-cran-Rcurl
 r-cran-here
 r-cran-simputation
 r-cran-googlecloudstorager
