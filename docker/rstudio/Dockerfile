@@ -90,7 +90,7 @@ RUN /rocker_scripts/install_rstudio.sh && \
     # installing texlive via apt instead, the built in install_texlive doesnt supply everything
     #apt-get -y install texlive-full && \
     # alien is a helper to install oracle instantclient
-    apt-get install -y --no-install-recommends alien 
+    apt-get install -y --no-install-recommends alien && \
     # installing yad (yet another dialog)
     apt-get -y install yad && \
     apt-get install -y iputils-ping && \
