@@ -92,9 +92,9 @@ RUN /rocker_scripts/install_rstudio.sh && \
     # alien is a helper to install oracle instantclient
     apt-get install -y --no-install-recommends alien 
     # installing yad (yet another dialog)
-    #apt-get -y install yad && \
-    #apt-get install -y iputils-ping && \
-    #apt-get install -y --no-install-recommends libaio1 libaio-dev
+    apt-get -y install yad && \
+    apt-get install -y iputils-ping && \
+    apt-get install -y --no-install-recommends libaio1 libaio-dev
 
 ENV R_HOME /usr/local/lib/R
 ENV R_LIBS_USER /usr/local/lib/R/library
@@ -112,7 +112,7 @@ ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/oracle/21/client64/lib
 
 # Downloading oracle instant-client components and saving to /tmp
 RUN wget https://download.oracle.com/otn_software/linux/instantclient/216000/oracle-instantclient-basic-21.6.0.0.0-1.x86_64.rpm -P /tmp/ && \
-   wget https://download.oracle.com/otn_software/linux/instantclient/216000/oracle-instantclient-devel-21.6.0.0.0-1.x86_64.rpm -P /tmp/ && \
+    wget https://download.oracle.com/otn_software/linux/instantclient/216000/oracle-instantclient-devel-21.6.0.0.0-1.x86_64.rpm -P /tmp/ && \
     wget https://download.oracle.com/otn_software/linux/instantclient/216000/oracle-instantclient-sqlplus-21.6.0.0.0-1.x86_64.rpm -P /tmp/ && \
     wget https://download.oracle.com/otn_software/linux/instantclient/216000/oracle-instantclient-odbc-21.6.0.0.0-1.x86_64.rpm -P /tmp/ && \
     wget https://download.oracle.com/otn_software/linux/instantclient/216000/oracle-instantclient-jdbc-21.6.0.0.0-1.x86_64.rpm -P /tmp/ && \
