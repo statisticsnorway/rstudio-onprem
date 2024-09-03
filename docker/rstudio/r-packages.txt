@@ -40,3 +40,14 @@ r-cran-countrycode
 r-cran-gargle
 r-cran-lubridate
 r-cran-haven
+
+r-cran-openxlsx
+r-cran-survey
+r-cran-renv
+r-cran-leaflet
+r-cran-sf
+r-cran-dbplyr
+r-cran-shiny
+r-cran-rstudioapi
+r-cran-httr
+r-cran-readr
