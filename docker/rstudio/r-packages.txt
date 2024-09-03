@@ -41,6 +41,7 @@ r-cran-gargle
 r-cran-lubridate
 r-cran-haven
 
+
 r-cran-openxlsx
 r-cran-survey
 r-cran-renv
@@ -62,3 +63,8 @@ r-cran-eurostat
 r-cran-git2r
 r-cran-testthat
 r-cran-usethis
+
+r-cran-yaml
+r-cran-rjstat
+r-cran-jsonlite
+r-cran-pxweb
