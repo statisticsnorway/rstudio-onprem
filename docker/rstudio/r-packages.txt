@@ -68,3 +68,6 @@ r-cran-yaml
 r-cran-rjstat
 r-cran-jsonlite
 r-cran-pxweb
+r-cran-stringr
+r-cran-MASS
+
