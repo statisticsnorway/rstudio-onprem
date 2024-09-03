@@ -44,5 +44,21 @@ r-cran-haven
 r-cran-openxlsx
 r-cran-survey
 r-cran-renv
-r-cran-leaflet
 
+r-cran-dbplyr
+r-cran-shiny
+r-cran-rstudioapi
+r-cran-httr
+r-cran-readr
+r-cran-sf
+r-cran-knitr
+r-cran-rmarkdown
+r-cran-here
+r-cran-simputation
+r-cran-googlecloudstorager
+r-cran-hmisc
+r-cran-rjdemetra
+r-cran-eurostat
+r-cran-git2r
+r-cran-testthat
+r-cran-usethis
