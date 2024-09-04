@@ -164,9 +164,17 @@ COPY ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz /tmp/ROracle_1.4-1_R_x86_64
 
 # Setup R java support and install R packages that are not available as Ubuntu packages
 COPY r-packages-src.R /tmp/r-packages-src.R
-
 RUN R CMD javareconf -e \
-    && Rscript /tmp/r-packages-src.R
+    && Rscript /tmp/r-packages-src.R \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
+    # Doesn t work with Java11 - use a custom one
+    && unzip /tmp/jwsacruncher-2.2.4.zip -d /opt && rm -f /tmp/jwsacruncher-2.2.4.zip \
+    # Create a symlink at /usr/bin so users can call jwsacruncher from anywhere
+    && ln -s /opt/jwsacruncher-2.2.4/bin/jwsacruncher /usr/bin/jwsacruncher
+
+COPY r-packages-git.R /tmp/r-packages-git.R
+RUN Rscript /tmp/r-packages-git.R    
+
 
 # add tnsnames.ora to oracle path
 #RUN ln -s /ssb/share/etc/tnsnames.ora /usr/lib/oracle/21/client64/lib/network/tnsnames.ora
