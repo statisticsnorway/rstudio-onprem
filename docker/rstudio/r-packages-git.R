@@ -8,4 +8,4 @@ pkgs = c(
   'statisticsnorway/ReGenesees'
 )
 
-remotes::install_github('statisticsnorway/ssb-pris')
+remotes::install_github(pkgs)
