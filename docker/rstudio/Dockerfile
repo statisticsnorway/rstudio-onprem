@@ -141,27 +141,6 @@ COPY jwsacruncher-2.2.4.zip /tmp/jwsacruncher-2.2.4.zip
 # Copy the ROracle installation file into the container
 COPY ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz /tmp/ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz
 
-#Packages installed through r-pacakges.txt
-    # R -e "install.packages('openxlsx', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('survey', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('renv', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('dbplyr', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('shiny', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('sf', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('rstudioapi', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('httr', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('readr', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('knitr', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('rmarkdown', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('here', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('simputation', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('git2r', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('testthat', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('usethis', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('RJDemetra', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('eurostat', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && 
-    # R -e "install.packages('arrow', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-
 # Setup R java support and install R packages that are not available as Ubuntu packages
 COPY r-packages-src.R /tmp/r-packages-src.R
 RUN R CMD javareconf -e \
