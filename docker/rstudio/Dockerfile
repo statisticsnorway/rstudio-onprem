@@ -141,71 +141,19 @@ COPY jwsacruncher-2.2.4.zip /tmp/jwsacruncher-2.2.4.zip
 # Copy the ROracle installation file into the container
 COPY ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz /tmp/ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz
 
-#Packages installed through r-pacakges.txt
-    # R -e "install.packages('openxlsx', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('survey', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('renv', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-  # R -e "install.packages('dbplyr', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('shiny', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-        # R -e "install.packages('sf', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
- # R -e "install.packages('rstudioapi', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('httr', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('readr', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('knitr', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('rmarkdown', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
- # R -e "install.packages('here', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-        # R -e "install.packages('simputation', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
- # R -e "install.packages('git2r', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('testthat', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('usethis', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     # R -e "install.packages('RJDemetra', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    # R -e "install.packages('eurostat', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
- # R -e "install.packages('arrow', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-    #R -e "install.packages('arrow', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-
 # Setup R java support and install R packages that are not available as Ubuntu packages
-RUN R CMD javareconf -e && \
-     R -e "install.packages('DBI', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('leaflet', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('getPass', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('rJava', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('rjwsacruncher', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('sfarrow', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     # Remove this way of installing ROracle because ROracle does not have support for 4.4.0 live repo
-     # Therefore we install this seperately
-     #R -e "install.packages('ROracle', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('/tmp/ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz', repos = NULL, type='source')" && \
-    # # Remove ROracle tar.gz because it is no longer needed
-     rm -f /tmp/ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz && \
-     R -e "install.packages('Rcurl', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('esquisse', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('dcmodify', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('SmallCountRounding', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('PxWebApiData', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('SSBtools', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('klassR', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('GISSB', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('googleCloudStorageR', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('tidyfst', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('GaussSuppression', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('Hmisc', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('sdcTable', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('DT', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('configr', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('dggridR', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "install.packages('rJava', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')" && \
-     R -e "remotes::install_github('statisticsnorway/ssb-pris')" && \
-     R -e "remotes::install_github('statisticsnorway/ssb-kostra')" && \
-     R -e "remotes::install_github('statisticsnorway/ssb-sdcforetakperson')" && \
-     R -e "remotes::install_github('statisticsnorway/ssb-struktur')" && \
-     R -e "remotes::install_github('statisticsnorway/ssb-fellesr', dependencies=TRUE, verbose=TRUE)" && \
-     R -e "remotes::install_github('statisticsnorway/ssb-easysdctable')" && \
-     R -e "remotes::install_github('statisticsnorway/ReGenesees')" && \
-     rm -rf /tmp/downloaded_packages/ /tmp/*.rds && \
+COPY r-packages-src.R /tmp/r-packages-src.R
+RUN R CMD javareconf -e \
+    && Rscript /tmp/r-packages-src.R \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
     # Doesn t work with Java11 - use a custom one
-     unzip /tmp/jwsacruncher-2.2.4.zip -d /opt && rm -f /tmp/jwsacruncher-2.2.4.zip && \
+    && unzip /tmp/jwsacruncher-2.2.4.zip -d /opt && rm -f /tmp/jwsacruncher-2.2.4.zip \
     # Create a symlink at /usr/bin so users can call jwsacruncher from anywhere
-     ln -s /opt/jwsacruncher-2.2.4/bin/jwsacruncher /usr/bin/jwsacruncher
+    && ln -s /opt/jwsacruncher-2.2.4/bin/jwsacruncher /usr/bin/jwsacruncher
+
+COPY r-packages-git.R /tmp/r-packages-git.R
+RUN Rscript /tmp/r-packages-git.R    
+
 
 # add tnsnames.ora to oracle path
 #RUN ln -s /ssb/share/etc/tnsnames.ora /usr/lib/oracle/21/client64/lib/network/tnsnames.ora
