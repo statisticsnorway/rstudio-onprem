@@ -17,7 +17,7 @@ remotes::install_github('statisticsnorway/ssb-kostra')
 remotes::install_github('statisticsnorway/ssb-sdcforetakperson')
 remotes::install_github('statisticsnorway/ssb-struktur')
 remotes::install_github('statisticsnorway/ssb-fellesr', dependencies=TRUE, verbose=TRUE)
-remotes::install_github('statisticsnorway/ssb-easysdctable')
+remotes::install_github('statisticsnorway/ssb-easysdctable', dependencies=TRUE, verbose=TRUE)
 remotes::install_github('statisticsnorway/ReGenesees')
 
 install.packages('arrow', dependencies=FALSE, repos='https://packagemanager.rstudio.com/cran/latest')
