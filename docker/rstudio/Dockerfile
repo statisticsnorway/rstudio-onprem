@@ -39,6 +39,11 @@ RUN apt-get update -y \
 # Adding packages 
 COPY r-packages.txt /tmp/r-packages.txt
 
+ARG R_VERSION=4.4.0
+RUN /opt/R/${R_VERSION}/bin/R -e 'install.packages("rJava", repos=https://packagemanager.rstudio.com/cran/__linux__/bionic/latest)' \
+    && /opt/R/${R_VERSION}/bin/R CMD javareconf JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/ \
+    && mkdir -p /etc/rstudio && printf "Path: /opt/R/${R_VERSION}\nScript: /opt/R/${R_VERSION}/lib/R/etc/ldpaths" > /etc/rstudio/r-versions \
+
 RUN R CMD javareconf -e \
     && apt-get update -y \
     && apt-get -y upgrade \
@@ -47,7 +52,7 @@ RUN R CMD javareconf -e \
     && apt-get -y install vim \
     # Installing bsdmainutils, helped solve colrm message after every command in the terminal
     && apt-get install -y bsdmainutils \
-    && apt-get install -y r-cran-rjava \
+    #&& apt-get install -y r-cran-rjava \
     #Added this to add packages from :
     && xargs apt-get install -y --no-install-recommends < /tmp/r-packages.txt \ 
     && apt autoremove -y \
