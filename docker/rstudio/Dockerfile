@@ -48,7 +48,7 @@ RUN R CMD javareconf -e \
     # Installing bsdmainutils, helped solve colrm message after every command in the terminal
     && apt-get install -y bsdmainutils \
     && apt-get install -V -y r-cran-tidyverse\
-    && R --no-echo -e "library(tidyverse)" \
+    && R --no-echo -e "2+2" \
     #Added this to add packages from :
     && xargs apt-get install -y --no-install-recommends < /tmp/r-packages.txt \ 
     && apt autoremove -y \
