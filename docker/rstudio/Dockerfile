@@ -47,14 +47,17 @@ RUN R CMD javareconf -e \
     && apt-get -y install vim \
     # Installing bsdmainutils, helped solve colrm message after every command in the terminal
     && apt-get install -y bsdmainutils \
-    && apt-get install -V -y r-cran-tidyverse\
-    && R --no-echo -e "2+2" \
+    #&& apt-get install -V -y r-cran-tidyverse\
+    #&& R --no-echo -e "2+2" \
     #Added this to add packages from :
     && xargs apt-get install -y --no-install-recommends < /tmp/r-packages.txt \ 
     && apt autoremove -y \
     && apt-get -y clean all \
     && rm -rf /var/lib/apt/lists/*
 
+RUN R --no-echo -e "2+2"
+
+RUN R --no-echo -e "library(tidyverse)"
 
 # Installing sssd-tools (required for authentication)
 RUN apt update && \
