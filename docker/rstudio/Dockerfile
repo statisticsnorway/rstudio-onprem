@@ -47,8 +47,8 @@ RUN R CMD javareconf -e \
     && apt-get -y install vim \
     # Installing bsdmainutils, helped solve colrm message after every command in the terminal
     && apt-get install -y bsdmainutils \
-    && apt-get install -V -y r-cran-rjava \
-    && R --no-echo -e "library(rJava)" \
+    && apt-get install -V -y r-cran-tidyverse\
+    && R --no-echo -e "library(tidyverse)" \
     #Added this to add packages from :
     && xargs apt-get install -y --no-install-recommends < /tmp/r-packages.txt \ 
     && apt autoremove -y \
