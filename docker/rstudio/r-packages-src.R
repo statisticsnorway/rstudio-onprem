@@ -1,4 +1,3 @@
-#&& Rscript /tmp/r-packages-src.R \
 pkgs <- c(
     'RJDemetra',
     'SmallCountRounding',
