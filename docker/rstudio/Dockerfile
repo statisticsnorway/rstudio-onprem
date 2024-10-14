@@ -36,10 +36,11 @@ RUN apt-get update -y \
     && apt-get -y clean all \
     && rm -rf /var/lib/apt/lists/*
 
+#Set R env variables
 ENV R_HOME /usr/local/lib/R
 ENV R_LIBS_USER /usr/local/lib/R/library
 
-# Setting up environment variables for oracle and
+# Setting up environment variables for oracle
 ENV OCI_INC=/usr/include/oracle/21/client64
 ENV OCI_LIB=/usr/lib/oracle/21/client64/lib
 ENV ORACLE_HOME=/usr/lib/oracle/21/client64
@@ -69,8 +70,8 @@ RUN alien -i /tmp/oracle-instantclient-basic-21.6.0.0.0-1.x86_64.rpm && \
     rm -rf /tmp/oracle-instantclient-*
 
 # https://cran.r-project.org/web/packages/arrow/vignettes/install.html
-ENV NOT_CRAN true
-ENV ARROW_GCS=ON
+#ENV NOT_CRAN true
+#ENV ARROW_GCS=ON
 
 # Copy the ROracle installation file into the container
 COPY ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz /tmp/ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz
@@ -78,9 +79,13 @@ COPY ROracle_1.4-1_R_x86_64-unknown-linux-gnu.tar.gz /tmp/ROracle_1.4-1_R_x86_64
 # Copy Jwsacruncher
 COPY jwsacruncher-2.2.4.zip /tmp/jwsacruncher-2.2.4.zip
 
+# Copy R-script that installs packages from source
 COPY r-packages-src.R /tmp/r-packages-src.R
+
 #RUN R CMD javareconf JAVA_HOME=/usr/lib/jvm/java-19-openjdk-amd64/  \
     #&& R -e "install.packages('rJava', dependencies=TRUE, repos='https://packagemanager.rstudio.com/cran/latest')"  \
+
+# Install additional packages from source
 RUN Rscript /tmp/r-packages-src.R \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
     # Doesn t work with Java11 - use a custom one
@@ -90,7 +95,7 @@ RUN Rscript /tmp/r-packages-src.R \
 
 RUN R --no-echo -e "cat(Sys.getenv('R_HOME'), Sys.getenv('R_LIBS_USER'),'\n');cat(.libPaths(),'\n'); print(installed.packages()[,c('Package', 'Version')])"
 
-# Change default R repo
+# Change default R repo (used by renv)
 COPY Rprofile.site /etc/R/Rprofile.site
 COPY Rprofile.site /usr/local/lib/R/etc/Rprofile.site
 
@@ -114,11 +119,6 @@ RUN apt-get update -y && \
 # Added dependencies for ProtoBuf  #################### Serializing structured data
 RUN apt-get update -y && \
     apt-get install -y libprotoc-dev libprotobuf-dev protobuf-compiler
-
-# https://github.com/rocker-org/rocker-versioned2/blob/5fa99b369510466ea8a2803d29e3417f5212a0fc/dockerfiles/rstudio_4.3.1.Dockerfile#L9
-ENV DEFAULT_USER=rstudio
-ENV PANDOC_VERSION=default
-ENV QUARTO_VERSION=default
 
 # add tnsnames.ora to oracle path
 RUN ln -s /ssb/share/etc/tnsnames.ora /usr/lib/oracle/21/client64/lib/network/tnsnames.ora
