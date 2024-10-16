@@ -6,7 +6,7 @@ USER root
 RUN R --no-echo -e "cat(Sys.getenv('R_HOME'), Sys.getenv('R_LIBS_USER'),'\n');cat(.libPaths(),'\n'); print(installed.packages()[,c('Package', 'Version')])"
 
 RUN apt-get update \
-    && apt-get --purge autoremove texlive* \
+    && apt-get -y --purge autoremove texlive* \
     && apt-get update \
     && apt-get check \
     && apt-get -f install \
