@@ -1,9 +1,16 @@
-FROM rocker/tidyverse:4.4.0
+FROM rocker/geospatial:4.4.0
 
 ARG openjdk_version="19" ########### Open Java-dev-kit
 USER root
 
 RUN R --no-echo -e "cat(Sys.getenv('R_HOME'), Sys.getenv('R_LIBS_USER'),'\n');cat(.libPaths(),'\n'); print(installed.packages()[,c('Package', 'Version')])"
+
+RUN apt-get update \
+    && apt-get --purge autoremove texlive* \
+    && apt-get update \
+    && apt-get check \
+    && apt-get -f install \
+    && apt-get autoclean
 
 RUN apt-get update -y \
     && apt-get -y upgrade \
