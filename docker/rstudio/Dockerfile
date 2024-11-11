@@ -1,6 +1,6 @@
-FROM rocker/geospatial:4.4.0
+FROM rocker/geospatial:4.4.2
 
-ARG openjdk_version="19" ########### Open Java-dev-kit
+ARG openjdk_version="23" ########### Open Java-dev-kit
 USER root
 
 RUN R --no-echo -e "cat(Sys.getenv('R_HOME'), Sys.getenv('R_LIBS_USER'),'\n');cat(.libPaths(),'\n'); print(installed.packages()[,c('Package', 'Version')])"
