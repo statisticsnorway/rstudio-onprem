@@ -167,3 +167,4 @@ RUN chmod +x /start.sh
 EXPOSE 8787
 
 CMD ["/start.sh"]
+
