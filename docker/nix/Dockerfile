@@ -1,0 +1,39 @@
+FROM ubuntu:latest
+
+RUN apt update -y
+
+RUN apt install curl -y
+
+# We don't have R nor {rix} in this image, so we can bootstrap it by downloading
+# the default.nix file that comes with {rix}. You can also download it beforehand
+# and then copy it to the Docker image
+RUN curl -O https://raw.githubusercontent.com/ropensci/rix/main/inst/extdata/default.nix
+
+# Copy a script to generate the environment of interest using {rix}
+COPY generate_env.R .
+
+# The next 4 lines install Nix inside Docker. See the Determinate Systems installer's documentation
+RUN curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install linux \
+  --extra-conf "sandbox = false" \
+  --init none \
+  --no-confirm
+
+# Adds Nix to the path, as described by the Determinate Systems installer's documentation
+ENV PATH="${PATH}:/nix/var/nix/profiles/default/bin"
+ENV user=root
+
+# Set up rstats-on-nix cache
+# No need to use the cachix client inside Docker
+RUN nix-shell --run "Rscript -e 'rix::setup_cachix()'"
+
+# This will overwrite the default.nix we downloaded previously with a new
+# expression generated from running `generate_env.R`
+RUN nix-shell --run "Rscript generate_env.R"
+
+# We now build the environment
+RUN nix-build
+
+# Finally, we run `nix-shell`. This will get executed when running
+# containers from this image. You can of course put anything in here
+# CMD nix-shell
+CMD ["nix-shell", "--run", "R"]
