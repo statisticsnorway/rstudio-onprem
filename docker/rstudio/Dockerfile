@@ -194,6 +194,8 @@ ENV DAPLA_REGION=ON_PREM
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
+RUN echo "Hello World!"
+
 EXPOSE 8787
 
 CMD ["/start.sh"]
