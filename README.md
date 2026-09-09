@@ -29,3 +29,5 @@ Da flyttes endringene i staging videre til Prod-server.
 
 For oppgradering av OS-versjon på image følges samme prosedyre som over.
 Sett inn ønsket versjon her: https://github.com/statisticsnorway/rstudio-onprem/blob/518e316d96689caaa441aaaa2c74ee058265d836/docker/rstudio/Dockerfile#L1C19-L1C19
+
+## Ny Rstudio-onprem løsning ligger her: https://github.com/statisticsnorway/rstudio-onprem-ghashr
